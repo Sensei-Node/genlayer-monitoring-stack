@@ -21,25 +21,23 @@ It is designed to be:
 
 # 📦 Repository Structure
 
+```text
 genlayer-monitoring-stack/
-├─ docker-compose.yml            # Main file that orchestrates all services
-├─ .env.example                  # Environment variables template
-│
-├─ prometheus/                   # Prometheus-specific configurations
+├─ docker-compose.yml        # Main file that orchestrates all services
+├─ .env.example              # Environment variables template
+├─ prometheus/               # Prometheus-specific configurations
 │  └─ prometheus.yml
-│
-├─ loki/                         # Loki-specific configurations
+├─ loki/                     # Loki-specific configurations
 │  └─ loki-config.yml
-│
-├─ grafana/                      # Grafana configuration files
-│  └─ provisioning/              # Automatic provisioning
-│     └─ datasources/            # Preloaded datasources
+├─ grafana/                  # Grafana configuration files
+│  └─ provisioning/          # Automatic provisioning
+│     └─ datasources/        # Preloaded datasources
 │        ├─ prometheus.yml
 │        └─ loki.yml
-│
-└─ nginx/                        # NGINX reverse proxy configuration
+└─ nginx/                    # NGINX reverse proxy configuration
    └─ nginx.conf
-   
+```
+
 ---
 
 # 🚀 Quick Start
@@ -61,6 +59,7 @@ Edit the .env file and configure:
 
 Example:
 ```bash
+.env
 GRAFANA_ADMIN_USER=admin
 GRAFANA_ADMIN_PASSWORD=changeme
 NODE_METRICS_URL=http://host.docker.internal:9153/metrics
@@ -79,7 +78,7 @@ docker compose up -d
 | Loki API   | [http://localhost/loki](http://localhost/loki)             |
 
 🏗 Architecture
-
+```text
           ┌──────────────────┐
           │    GenLayer Node │
           │  (metrics + logs)│
@@ -110,6 +109,7 @@ docker compose up -d
           │      NGINX       │
           │  (reverse proxy) │
           └──────────────────┘
+```
 
 The design ensures:
 - simple local deployment
@@ -161,6 +161,7 @@ metrics:
 ```
 
 ```bash
+.env
 CENTRAL_MONITORING_URL=http://<backend>/prometheus/api/v1/write
 CENTRAL_LOKI_URL=http://<backend>/loki/api/v1/push
 NODE_ID=<validator-unique-id>
