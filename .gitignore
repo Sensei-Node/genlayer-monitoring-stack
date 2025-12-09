@@ -1,0 +1,75 @@
+# -----------------------------
+# Environment & Secrets
+# -----------------------------
+.env
+*.env
+!/.env.example     # keep example env
+
+# -----------------------------
+# Docker
+# -----------------------------
+# Docker build artifacts
+**/.docker
+**/docker-data/
+
+# Docker Compose override files
+docker-compose.override.yml
+
+# Local Docker volumes (Prometheus, Loki, Grafana)
+prometheus-data/
+loki-data/
+grafana-data/
+
+# -----------------------------
+# Prometheus
+# -----------------------------
+prometheus/*.db
+prometheus/wal/
+prometheus/data/
+prometheus/queries.active
+prometheus/queries.*.tmp
+prometheus/tsdb/
+
+# -----------------------------
+# Loki
+# -----------------------------
+loki/chunks/
+loki/index/
+loki/index_cache/
+loki/compactor/
+loki/tmp/
+
+# -----------------------------
+# Grafana
+# -----------------------------
+grafana/plugins/
+grafana/logs/
+grafana/data/
+grafana/grafana.db*
+grafana/session/
+grafana/tmp/
+
+# -----------------------------
+# NGINX
+# -----------------------------
+nginx/cache/
+nginx/logs/
+nginx/tmp/
+
+# -----------------------------
+# System / OS files
+# -----------------------------
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# -----------------------------
+# Editor / IDE
+# -----------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ----------------------------
